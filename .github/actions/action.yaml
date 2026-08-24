@@ -4,8 +4,6 @@ description: Checkout et installation de Terraform
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v3
-
     - uses: hashicorp/setup-terraform@v4
       with:
         terraform_version: ${{ inputs.terraform_version }}
