@@ -31,10 +31,10 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
       - name: Check Terraform formatting
         run: terraform fmt -check
-      - name: Validate Terraform configuration
-        run: terraform validate
       - name: Terraform Init
         run: terraform init
+      - name: Validate Terraform configuration
+        run: terraform validate
 
   terraform-plan:
     name: Terraform Plan
