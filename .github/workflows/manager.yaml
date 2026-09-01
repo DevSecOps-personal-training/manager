@@ -14,14 +14,13 @@ env:
   TF_VAR_app_id: ${{ vars.IAC_GITHUB_APP_ID }}
   TF_VAR_app_installation_id: ${{ vars.IAC_GITHUB_APP_INSTALLATION_ID }}
   TF_VAR_app_pem_file: ${{ secrets.IAC_GIHUB_APP_PEM }}
-
+defaults:
+  run:
+    working-directory: first-iac-managed-repo/terraform
 jobs:
   terraform-initialization:
     name: Terraform Init
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: first-iac-managed-repo/terraform
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
