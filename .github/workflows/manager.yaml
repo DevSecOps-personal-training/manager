@@ -19,6 +19,9 @@ jobs:
   terraform-initialization:
     name: Terraform Init
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: first-iac-managed-repo/terraform
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -26,9 +29,6 @@ jobs:
         uses: ./.github/actions
         with:
           terraform_version: ${{ env.TF_VERSION }}
-      - name: checkout managed repo
-        run: |
-          cd first-iac-managed-repo/terraform
       - name: Check Terraform formatting
         run: terraform fmt -check
       - name: Validate Terraform configuration
