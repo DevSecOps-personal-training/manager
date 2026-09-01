@@ -28,7 +28,7 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
       - name: checkout managed repo
         run: |
-          cd ${{ github.repository_owner_part }}/first-iac-managed-repo/terraform
+          cd first-iac-managed-repo/terraform
       - name: Check Terraform formatting
         run: terraform fmt -check
       - name: Validate Terraform configuration
